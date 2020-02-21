@@ -1,0 +1,37 @@
+﻿@page
+
+@model POS_Rezor.Pages.Employees.IndexModel
+@{
+    ViewData["Title"] = "Index";
+    ViewData["ShowButtons"] = true;
+}
+
+<style>
+    .btn {
+        width: 75px
+    }
+</style>
+
+<form method="get">
+    <div class="input-group">
+        <input class="form-control" asp-for="SearchTerm" />
+        <span class="input-group-append">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </span>
+    </div>
+</form>
+
+@*<h1>@Model.Employees.Count()</h1>*@
+@*@await Component.InvokeAsync("HeadCount")*@
+
+@*if I Create TegHelpers then I use it for do this go to _ViewImports.cshtml then add @addTagHelper *, POS_Rezor*@
+<vc:head-count department-name="@null"></vc:head-count>
+
+
+<div class="card-deck">
+    @foreach (var employee in Model.Employees)
+    {
+        <partial name="_DisplayEmployeePartial" model="employee" view-data="ViewData" />
+    }
+</div>
+

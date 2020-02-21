@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "datatables@1.10.19",
+      "destination": "wwwroot/datatables/"
+    },
+    {
+      "library": "datepicker@0.6.5",
+      "destination": "wwwroot/datepicker/"
+    },
+    {
+      "library": "sweetalert@2.1.2",
+      "destination": "wwwroot/sweetalert/"
+    },
+    {
+      "library": "toastr.js@2.1.4",
+      "destination": "wwwroot/toastr.js/",
+      "files": [
+        "toastr.min.js"
+      ]
+    }
+  ]
+}

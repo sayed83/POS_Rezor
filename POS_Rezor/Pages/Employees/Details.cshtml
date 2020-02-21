@@ -1,0 +1,58 @@
+﻿@*@page "/employees/view/{id:min(1):max(1000)}"*@
+@*@page "/employees/view/{id:even:min(2)}"*@
+@*@page "/employees/view/{id:even}"*@
+@page "/employees/view/{id:min(1)}"
+@model POS_Rezor.Pages.Employees.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+    var photopath = "~/Images/" + (Model.Employee.PhotoPath ?? "noimage.jpg");
+}
+
+
+
+@*@if (TempData["message"] != null)
+    {
+        <div class="alert alert-primary">
+            @TempData["message"]
+        </div>
+    }*@
+
+@*@if (!string.IsNullOrEmpty(Model.Message))
+    {
+        <div class="alert alert-primary">
+            @Model.Message
+        </div>
+    }*@
+
+<div class="row justify-content-center m-3">
+    @if (Model.Message != null)
+    {
+        <div class="alert alert-primary">
+            @Model.Message
+        </div>
+    }
+<div class="col-sm-8">
+    @*if I Create TegHelpers then I use it for do this go to _ViewImports.cshtml then add @addTagHelper *, POS_Rezor*@
+    <vc:head-count department-name="@Model.Employee.Department"></vc:head-count>
+    @*@await Component.InvokeAsync("HeadCount", new { department = Model.Employee.Department})*@
+    @*@await Component.InvokeAsync("HeadCount")*@
+</div>
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h1>@Model.Employee.Name</h1>
+            </div>
+            <div class="card-body text-center">
+                <img src="@photopath" class="card-img-top" asp-append-version="true" alt="Alternate Text" />
+                <h4>Employee ID : @Model.Employee.Id</h4>
+                <h4>Email : @Model.Employee.Email</h4>
+                <h4>Department : @Model.Employee.Department</h4>
+            </div>
+            <div class="card-footer text-center">
+                <a asp-page="index" class="btn btn-info">Back</a>
+                <a asp-page="index" class="btn btn-primary">Edit</a>
+                <a asp-page="index" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
