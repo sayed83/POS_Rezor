@@ -13,6 +13,14 @@ namespace POS_Rezor.Services
         }
 
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Section> Sections { get; set; }
+        public DbSet<Member> Members { get; set; }
+        public DbSet<Profit> Profits { get; set; }
+        public DbSet<Invest> Invests { get; set; }
+        public DbSet<Expenses> Expensess { get; set; }
+        public DbSet<Committee> Committees { get; set; }
+        public DbSet<BloodGroup> BloodGroup { get; set; }
+        public DbSet<Transection> Transections { get; set; }
         public DbSet<Modules> Modules { get; set; }
         public DbSet<ModuleGroup> ModuleGroups { get; set; }
         public DbSet<ModuleMenu> ModuleMenues { get; set; }

@@ -19,7 +19,7 @@ namespace POS_Rezor.Services
         public Employee Add(Employee newEmployee)
         {
             //data insert by using store Procedure
-            context.Database.ExecuteSqlRaw("spInsertEmployee {0},{1},{2},{3}", newEmployee.Name, newEmployee.Email, newEmployee.PhotoPath, newEmployee.Department);
+            context.Database.ExecuteSqlRaw("spInsertEmployee {0},{1},{2},{3},{4}", newEmployee.Name, newEmployee.Email, newEmployee.PhotoPath, newEmployee.Department,newEmployee.SectionId);
          
             //context.Employees.Add(newEmployee);
             //context.SaveChanges();

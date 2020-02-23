@@ -1,0 +1,75 @@
+﻿@page
+@model POS_Rezor.Pages.Expensess.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Expenses</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Expenses.ExpenceId" />
+            <div class="form-group">
+                <label asp-for="Expenses.ExpensesName" class="control-label"></label>
+                <input asp-for="Expenses.ExpensesName" class="form-control" />
+                <span asp-validation-for="Expenses.ExpensesName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expenses.ExpensesAmnount" class="control-label"></label>
+                <input asp-for="Expenses.ExpensesAmnount" class="form-control" />
+                <span asp-validation-for="Expenses.ExpensesAmnount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expenses.ExpensesDate" class="control-label"></label>
+                <input asp-for="Expenses.ExpensesDate" class="form-control" />
+                <span asp-validation-for="Expenses.ExpensesDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expenses.ExpensesDec" class="control-label"></label>
+                <input asp-for="Expenses.ExpensesDec" class="form-control" />
+                <span asp-validation-for="Expenses.ExpensesDec" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expenses.userid" class="control-label"></label>
+                <input asp-for="Expenses.userid" class="form-control" />
+                <span asp-validation-for="Expenses.userid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expenses.comid" class="control-label"></label>
+                <input asp-for="Expenses.comid" class="form-control" />
+                <span asp-validation-for="Expenses.comid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expenses.EntryDate" class="control-label"></label>
+                <input asp-for="Expenses.EntryDate" class="form-control" />
+                <span asp-validation-for="Expenses.EntryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expenses.AddedBy" class="control-label"></label>
+                <input asp-for="Expenses.AddedBy" class="form-control" />
+                <span asp-validation-for="Expenses.AddedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Expenses.MemberId" class="control-label"></label>
+                <select asp-for="Expenses.MemberId" class="form-control" asp-items="ViewBag.MemberId"></select>
+                <span asp-validation-for="Expenses.MemberId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

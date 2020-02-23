@@ -1,0 +1,63 @@
+﻿@page
+@model POS_Rezor.Pages.Transections.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Transection</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Transection.Month" class="control-label"></label>
+                <select asp-for="Transection.Month" class="form-control"></select>
+                <span asp-validation-for="Transection.Month" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transection.GivenDate" class="control-label"></label>
+                <input asp-for="Transection.GivenDate" class="form-control" />
+                <span asp-validation-for="Transection.GivenDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transection.EntryDate" class="control-label"></label>
+                <input asp-for="Transection.EntryDate" class="form-control" />
+                <span asp-validation-for="Transection.EntryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transection.TransectionAmount" class="control-label"></label>
+                <input asp-for="Transection.TransectionAmount" class="form-control" />
+                <span asp-validation-for="Transection.TransectionAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transection.userid" class="control-label"></label>
+                <input asp-for="Transection.userid" class="form-control" />
+                <span asp-validation-for="Transection.userid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transection.comid" class="control-label"></label>
+                <input asp-for="Transection.comid" class="form-control" />
+                <span asp-validation-for="Transection.comid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Transection.MemberId" class="control-label"></label>
+                <select asp-for="Transection.MemberId" class ="form-control" asp-items="ViewBag.MemberId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

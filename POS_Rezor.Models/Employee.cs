@@ -13,5 +13,8 @@ namespace POS_Rezor.Models
         public string Email { get; set; }
         public string PhotoPath { get; set; }
         public Dept? Department { get; set; }
+
+        public int SectionId { get; set; }
+        public virtual Section Section { get; set; }
     }
 }

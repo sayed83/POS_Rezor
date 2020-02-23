@@ -2,11 +2,11 @@
 
 namespace POS_Rezor.Services.Migrations
 {
-    public partial class GetEmployeeById : Migration
+    public partial class GetEmployeeByIDModification : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            string prodedure = @"Create procedure GetEmployeeByIds 
+            string prodedure = @"Alter procedure GetEmployeeByIds 
     @id int
     as
     begin

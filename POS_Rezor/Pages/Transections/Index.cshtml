@@ -1,0 +1,72 @@
+﻿@page
+@model POS_Rezor.Pages.Transections.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Transection[0].Month)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transection[0].GivenDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transection[0].EntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transection[0].TransectionAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transection[0].userid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transection[0].comid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transection[0].Member)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Transection) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Month)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GivenDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransectionAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.MemberName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TransectionId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TransectionId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TransectionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

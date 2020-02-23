@@ -1,0 +1,73 @@
+﻿@page
+@model POS_Rezor.Pages.Invests.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Invest</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Invest.InvestPurpose" class="control-label"></label>
+                <input asp-for="Invest.InvestPurpose" class="form-control" />
+                <span asp-validation-for="Invest.InvestPurpose" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invest.InvestAmount" class="control-label"></label>
+                <input asp-for="Invest.InvestAmount" class="form-control" />
+                <span asp-validation-for="Invest.InvestAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invest.InvestDate" class="control-label"></label>
+                <input asp-for="Invest.InvestDate" class="form-control" />
+                <span asp-validation-for="Invest.InvestDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invest.ExpireDate" class="control-label"></label>
+                <input asp-for="Invest.ExpireDate" class="form-control" />
+                <span asp-validation-for="Invest.ExpireDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invest.userid" class="control-label"></label>
+                <input asp-for="Invest.userid" class="form-control" />
+                <span asp-validation-for="Invest.userid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invest.comid" class="control-label"></label>
+                <input asp-for="Invest.comid" class="form-control" />
+                <span asp-validation-for="Invest.comid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invest.EntryDate" class="control-label"></label>
+                <input asp-for="Invest.EntryDate" class="form-control" />
+                <span asp-validation-for="Invest.EntryDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invest.AddedBy" class="control-label"></label>
+                <input asp-for="Invest.AddedBy" class="form-control" />
+                <span asp-validation-for="Invest.AddedBy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Invest.MemberId" class="control-label"></label>
+                <select asp-for="Invest.MemberId" class ="form-control" asp-items="ViewBag.MemberId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

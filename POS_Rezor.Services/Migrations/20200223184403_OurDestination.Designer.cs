@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using POS_Rezor.Services;
 
 namespace POS_Rezor.Services.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200223184403_OurDestination")]
+    partial class OurDestination
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -588,41 +590,6 @@ namespace POS_Rezor.Services.Migrations
                     b.ToTable("Sections");
                 });
 
-            modelBuilder.Entity("POS_Rezor.Models.Transection", b =>
-                {
-                    b.Property<int>("TransectionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("EntryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("GivenDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("MemberId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Month")
-                        .HasColumnType("int");
-
-                    b.Property<float>("TransectionAmount")
-                        .HasColumnType("real");
-
-                    b.Property<int?>("comid")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("userid")
-                        .HasColumnType("int");
-
-                    b.HasKey("TransectionId");
-
-                    b.HasIndex("MemberId");
-
-                    b.ToTable("Transections");
-                });
-
             modelBuilder.Entity("POS_Rezor.Models.Committee", b =>
                 {
                     b.HasOne("POS_Rezor.Models.Member", "Member")
@@ -708,13 +675,6 @@ namespace POS_Rezor.Services.Migrations
                     b.HasOne("POS_Rezor.Models.Invest", "Invest")
                         .WithMany()
                         .HasForeignKey("InvestId");
-                });
-
-            modelBuilder.Entity("POS_Rezor.Models.Transection", b =>
-                {
-                    b.HasOne("POS_Rezor.Models.Member", "Member")
-                        .WithMany()
-                        .HasForeignKey("MemberId");
                 });
 #pragma warning restore 612, 618
         }

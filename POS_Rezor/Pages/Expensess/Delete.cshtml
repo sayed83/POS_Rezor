@@ -1,0 +1,76 @@
+﻿@page
+@model POS_Rezor.Pages.Expensess.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Expenses</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expenses.ExpensesName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expenses.ExpensesName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expenses.ExpensesAmnount)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expenses.ExpensesAmnount)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expenses.ExpensesDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expenses.ExpensesDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expenses.ExpensesDec)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expenses.ExpensesDec)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expenses.userid)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expenses.userid)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expenses.comid)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expenses.comid)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expenses.EntryDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expenses.EntryDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expenses.AddedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expenses.AddedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Expenses.Member)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Expenses.Member.MemberName)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Expenses.ExpenceId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

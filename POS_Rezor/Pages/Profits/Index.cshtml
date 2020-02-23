@@ -1,0 +1,78 @@
+﻿@page
+@model POS_Rezor.Pages.Profits.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Profit[0].ProfitDec)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profit[0].ProfitAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profit[0].GivenDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profit[0].userid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profit[0].comid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profit[0].EntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profit[0].AddedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Profit[0].Invest)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Profit) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfitDec)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProfitAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GivenDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Invest.InvestPurpose)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ProfitId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ProfitId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ProfitId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

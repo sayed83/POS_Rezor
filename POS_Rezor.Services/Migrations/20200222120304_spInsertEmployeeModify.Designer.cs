@@ -3,72 +3,23 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using POS_Rezor.Services;
 
 namespace POS_Rezor.Services.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200222120304_spInsertEmployeeModify")]
+    partial class spInsertEmployeeModify
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("POS_Rezor.Models.BloodGroup", b =>
-                {
-                    b.Property<int>("BloodGroupId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BloodGroupName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("BloodGroupId");
-
-                    b.ToTable("BloodGroup");
-                });
-
-            modelBuilder.Entity("POS_Rezor.Models.Committee", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AddedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ElactedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("EntryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("MemberId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Position")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("comid")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("userid")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("MemberId");
-
-                    b.ToTable("Committees");
-                });
 
             modelBuilder.Entity("POS_Rezor.Models.Employee", b =>
                 {
@@ -96,51 +47,7 @@ namespace POS_Rezor.Services.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("SectionId");
-
                     b.ToTable("Employees");
-                });
-
-            modelBuilder.Entity("POS_Rezor.Models.Expenses", b =>
-                {
-                    b.Property<int>("ExpenceId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AddedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("EntryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<float>("ExpensesAmnount")
-                        .HasColumnType("real");
-
-                    b.Property<DateTime?>("ExpensesDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ExpensesDec")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ExpensesName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("MemberId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("comid")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("userid")
-                        .HasColumnType("int");
-
-                    b.HasKey("ExpenceId");
-
-                    b.HasIndex("MemberId");
-
-                    b.ToTable("Expensess");
                 });
 
             modelBuilder.Entity("POS_Rezor.Models.ImageCriteria", b =>
@@ -156,151 +63,6 @@ namespace POS_Rezor.Services.Migrations
                     b.HasKey("ImageCriteriaId");
 
                     b.ToTable("ImageCriterias");
-                });
-
-            modelBuilder.Entity("POS_Rezor.Models.Invest", b =>
-                {
-                    b.Property<int>("InvestId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AddedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("EntryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ExpireDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<float>("InvestAmount")
-                        .HasColumnType("real");
-
-                    b.Property<DateTime>("InvestDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("InvestPurpose")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("MemberId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("comid")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("userid")
-                        .HasColumnType("int");
-
-                    b.HasKey("InvestId");
-
-                    b.HasIndex("MemberId");
-
-                    b.ToTable("Invests");
-                });
-
-            modelBuilder.Entity("POS_Rezor.Models.Member", b =>
-                {
-                    b.Property<int>("MemberId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("BloodGroupId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DOB")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("EducationalQualification")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EntryDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FatherName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Gender")
-                        .HasColumnType("int");
-
-                    b.Property<byte[]>("Image")
-                        .HasColumnType("varbinary(max)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("JoiningDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("MaritalStatus")
-                        .HasColumnType("int");
-
-                    b.Property<string>("MemberName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MotherName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NIDNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nationality")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NomineeNIDNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NomineeName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NomineePhoneNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PassportNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PermanentAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhotoPath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PresentAddress")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RelationWithNominee")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("Religion")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SpouseName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TinNo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("comid")
-                        .HasColumnType("int");
-
-                    b.Property<int>("userid")
-                        .HasColumnType("int");
-
-                    b.HasKey("MemberId");
-
-                    b.HasIndex("BloodGroupId");
-
-                    b.ToTable("Members");
                 });
 
             modelBuilder.Entity("POS_Rezor.Models.MenuPermission_Details", b =>
@@ -533,45 +295,6 @@ namespace POS_Rezor.Services.Migrations
                     b.ToTable("Modules");
                 });
 
-            modelBuilder.Entity("POS_Rezor.Models.Profit", b =>
-                {
-                    b.Property<int>("ProfitId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("AddedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("EntryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("GivenDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("InvestId")
-                        .HasColumnType("int");
-
-                    b.Property<float>("ProfitAmount")
-                        .HasColumnType("real");
-
-                    b.Property<string>("ProfitDec")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("comid")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("userid")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProfitId");
-
-                    b.HasIndex("InvestId");
-
-                    b.ToTable("Profits");
-                });
-
             modelBuilder.Entity("POS_Rezor.Models.Section", b =>
                 {
                     b.Property<int>("SectionId")
@@ -586,78 +309,6 @@ namespace POS_Rezor.Services.Migrations
                     b.HasKey("SectionId");
 
                     b.ToTable("Sections");
-                });
-
-            modelBuilder.Entity("POS_Rezor.Models.Transection", b =>
-                {
-                    b.Property<int>("TransectionId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime?>("EntryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("GivenDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("MemberId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Month")
-                        .HasColumnType("int");
-
-                    b.Property<float>("TransectionAmount")
-                        .HasColumnType("real");
-
-                    b.Property<int?>("comid")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("userid")
-                        .HasColumnType("int");
-
-                    b.HasKey("TransectionId");
-
-                    b.HasIndex("MemberId");
-
-                    b.ToTable("Transections");
-                });
-
-            modelBuilder.Entity("POS_Rezor.Models.Committee", b =>
-                {
-                    b.HasOne("POS_Rezor.Models.Member", "Member")
-                        .WithMany()
-                        .HasForeignKey("MemberId");
-                });
-
-            modelBuilder.Entity("POS_Rezor.Models.Employee", b =>
-                {
-                    b.HasOne("POS_Rezor.Models.Section", "Section")
-                        .WithMany()
-                        .HasForeignKey("SectionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("POS_Rezor.Models.Expenses", b =>
-                {
-                    b.HasOne("POS_Rezor.Models.Member", "Member")
-                        .WithMany()
-                        .HasForeignKey("MemberId");
-                });
-
-            modelBuilder.Entity("POS_Rezor.Models.Invest", b =>
-                {
-                    b.HasOne("POS_Rezor.Models.Member", "Member")
-                        .WithMany()
-                        .HasForeignKey("MemberId");
-                });
-
-            modelBuilder.Entity("POS_Rezor.Models.Member", b =>
-                {
-                    b.HasOne("POS_Rezor.Models.BloodGroup", "BloodGroup")
-                        .WithMany()
-                        .HasForeignKey("BloodGroupId");
                 });
 
             modelBuilder.Entity("POS_Rezor.Models.MenuPermission_Details", b =>
@@ -701,20 +352,6 @@ namespace POS_Rezor.Services.Migrations
                     b.HasOne("POS_Rezor.Models.ModuleMenu", "ParentModuleMenu")
                         .WithMany("ModuleMenuChildren")
                         .HasForeignKey("ParentModuleMenuModuleMenuId");
-                });
-
-            modelBuilder.Entity("POS_Rezor.Models.Profit", b =>
-                {
-                    b.HasOne("POS_Rezor.Models.Invest", "Invest")
-                        .WithMany()
-                        .HasForeignKey("InvestId");
-                });
-
-            modelBuilder.Entity("POS_Rezor.Models.Transection", b =>
-                {
-                    b.HasOne("POS_Rezor.Models.Member", "Member")
-                        .WithMany()
-                        .HasForeignKey("MemberId");
                 });
 #pragma warning restore 612, 618
         }

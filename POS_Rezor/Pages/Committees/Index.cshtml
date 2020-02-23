@@ -1,0 +1,72 @@
+﻿@page
+@model POS_Rezor.Pages.Committees.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Committee[0].Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Committee[0].ElactedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Committee[0].userid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Committee[0].comid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Committee[0].EntryDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Committee[0].AddedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Committee[0].Member)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Committee) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ElactedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.userid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.comid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntryDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.MemberName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

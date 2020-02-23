@@ -61,6 +61,14 @@
 
     </div>
 
+    @*<div class="form-group row">
+        <label asp-for="Employee.Section.SectionName" class="col-form-label col-sm-2"></label>
+        <div class="col-sm-10">
+            <select asp-for="Employee.Section.SectionName" class="custom-select mr-sm-2" asp-items="Html.DropDownListFor<Section>()">
+                <option value="value">Select</option>
+            </select>
+        </div>
+    </div>*@
     <div class="form-group row">
         <label asp-for="Employee.Department" class="col-form-label col-sm-2"></label>
         <div class="col-sm-10">
