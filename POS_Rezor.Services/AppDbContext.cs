@@ -13,6 +13,7 @@ namespace POS_Rezor.Services
         }
 
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<Department> Departments { get; set; }
         public DbSet<Section> Sections { get; set; }
         public DbSet<Member> Members { get; set; }
         public DbSet<Profit> Profits { get; set; }
